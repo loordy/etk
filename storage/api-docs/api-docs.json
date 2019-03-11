@@ -1,0 +1,4405 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "ETK API",
+        "contact": {
+            "name": "fbeck",
+            "email": "loordy@live.ru"
+        },
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "/api/v1",
+            "description": "First iteration"
+        },
+        {
+            "url": "/api/v2",
+            "description": "Second iteration"
+        },
+        {
+            "url": "/api/v1",
+            "description": "First iteration"
+        },
+        {
+            "url": "/api/v2",
+            "description": "Second iteration"
+        }
+    ],
+    "paths": {
+        "/admin/users": {
+            "get": {
+                "tags": [
+                    "Admin Users"
+                ],
+                "operationId": "/admin/users/index",
+                "responses": {
+                    "200": {
+                        "description": "Users retrieved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "success": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "true",
+                                                    "false"
+                                                ],
+                                                "example": "true"
+                                            },
+                                            "data": {
+                                                "properties": {
+                                                    "id_user": {
+                                                        "type": "integer",
+                                                        "example": 777
+                                                    },
+                                                    "active_user": {
+                                                        "type": "boolean",
+                                                        "example": true
+                                                    },
+                                                    "type_user": {
+                                                        "type": "number",
+                                                        "example": 4
+                                                    },
+                                                    "tax_person_user": {
+                                                        "type": "string",
+                                                        "example": "123456789"
+                                                    },
+                                                    "pin_user": {
+                                                        "type": "string",
+                                                        "example": "11223344556677"
+                                                    },
+                                                    "tin_company_user": {
+                                                        "type": "string",
+                                                        "example": "123456789"
+                                                    },
+                                                    "is_admin_user": {
+                                                        "type": "boolean",
+                                                        "example": false
+                                                    },
+                                                    "mobile_user": {
+                                                        "type": "string",
+                                                        "example": "998991232333"
+                                                    },
+                                                    "home_tel_user": {
+                                                        "type": "string",
+                                                        "example": "998711232333"
+                                                    },
+                                                    "token_user": {
+                                                        "type": "string",
+                                                        "example": null
+                                                    },
+                                                    "company_right_user": {
+                                                        "type": "string",
+                                                        "example": null
+                                                    },
+                                                    "ws_right_user": {
+                                                        "type": "string",
+                                                        "example": null
+                                                    },
+                                                    "visible_data_user": {
+                                                        "type": "string",
+                                                        "example": null
+                                                    },
+                                                    "ml_right_user": {
+                                                        "type": "number",
+                                                        "example": 1
+                                                    },
+                                                    "su_right_user": {
+                                                        "type": "string",
+                                                        "example": null
+                                                    },
+                                                    "soato_minlab_user": {
+                                                        "type": "string",
+                                                        "example": "1726      "
+                                                    },
+                                                    "email_user": {
+                                                        "type": "string",
+                                                        "example": "emaildsf@site.uz"
+                                                    },
+                                                    "soato_company_user": {
+                                                        "type": "string",
+                                                        "example": null
+                                                    },
+                                                    "user_oked_user": {
+                                                        "type": "string",
+                                                        "example": null
+                                                    },
+                                                    "family_person_user": {
+                                                        "type": "string",
+                                                        "example": "Пользователь"
+                                                    },
+                                                    "name_person_user": {
+                                                        "type": "string",
+                                                        "example": "MinZTO"
+                                                    },
+                                                    "middlename_person_user": {
+                                                        "type": "string",
+                                                        "example": "Ташкент"
+                                                    },
+                                                    "data_user": {
+                                                        "type": "string",
+                                                        "example": null
+                                                    },
+                                                    "residential_address_user": {
+                                                        "type": "string",
+                                                        "example": null
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "User retrieved successfully"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorized to access this users."
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            }
+        },
+        "/admin/users/{id}": {
+            "get": {
+                "tags": [
+                    "Admin Users"
+                ],
+                "operationId": "/admin/users/show",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID пользователя",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Users retrieved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "success": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "true",
+                                                    "false"
+                                                ],
+                                                "example": "true"
+                                            },
+                                            "data": {
+                                                "properties": {
+                                                    "id_user": {
+                                                        "type": "integer",
+                                                        "example": 777
+                                                    },
+                                                    "active_user": {
+                                                        "type": "boolean",
+                                                        "example": true
+                                                    },
+                                                    "type_user": {
+                                                        "type": "number",
+                                                        "example": 4
+                                                    },
+                                                    "tax_person_user": {
+                                                        "type": "string",
+                                                        "example": "123456789"
+                                                    },
+                                                    "pin_user": {
+                                                        "type": "string",
+                                                        "example": "11223344556677"
+                                                    },
+                                                    "tin_company_user": {
+                                                        "type": "string",
+                                                        "example": "123456789"
+                                                    },
+                                                    "is_admin_user": {
+                                                        "type": "boolean",
+                                                        "example": false
+                                                    },
+                                                    "mobile_user": {
+                                                        "type": "string",
+                                                        "example": "998991232333"
+                                                    },
+                                                    "home_tel_user": {
+                                                        "type": "string",
+                                                        "example": "998711232333"
+                                                    },
+                                                    "token_user": {
+                                                        "type": "string",
+                                                        "example": null
+                                                    },
+                                                    "company_right_user": {
+                                                        "type": "string",
+                                                        "example": null
+                                                    },
+                                                    "ws_right_user": {
+                                                        "type": "string",
+                                                        "example": null
+                                                    },
+                                                    "visible_data_user": {
+                                                        "type": "string",
+                                                        "example": null
+                                                    },
+                                                    "ml_right_user": {
+                                                        "type": "number",
+                                                        "example": 1
+                                                    },
+                                                    "su_right_user": {
+                                                        "type": "string",
+                                                        "example": null
+                                                    },
+                                                    "soato_minlab_user": {
+                                                        "type": "string",
+                                                        "example": "1726      "
+                                                    },
+                                                    "email_user": {
+                                                        "type": "string",
+                                                        "example": "emaildsf@site.uz"
+                                                    },
+                                                    "soato_company_user": {
+                                                        "type": "string",
+                                                        "example": null
+                                                    },
+                                                    "user_oked_user": {
+                                                        "type": "string",
+                                                        "example": null
+                                                    },
+                                                    "family_person_user": {
+                                                        "type": "string",
+                                                        "example": "Пользователь"
+                                                    },
+                                                    "name_person_user": {
+                                                        "type": "string",
+                                                        "example": "MinZTO"
+                                                    },
+                                                    "middlename_person_user": {
+                                                        "type": "string",
+                                                        "example": "Ташкент"
+                                                    },
+                                                    "data_user": {
+                                                        "type": "string",
+                                                        "example": null
+                                                    },
+                                                    "residential_address_user": {
+                                                        "type": "string",
+                                                        "example": null
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "User retrieved successfully"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorized to update this users."
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Admin Users"
+                ],
+                "operationId": "/admin/users/update",
+                "parameters": [
+                    {
+                        "name": "active_user",
+                        "in": "path",
+                        "description": "Активность пользователя",
+                        "required": false,
+                        "explode": true,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "type_user",
+                        "in": "query",
+                        "description": "Тип пользователя",
+                        "required": false,
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "Пароль",
+                        "required": false,
+                        "explode": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "soato_minlab_user",
+                        "in": "query",
+                        "description": "СОАТО сотрудника минЗТО",
+                        "required": false,
+                        "explode": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "email_user",
+                        "in": "query",
+                        "description": "E-mail пользователя",
+                        "required": false,
+                        "explode": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Users updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "success": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "true",
+                                                    "false"
+                                                ],
+                                                "example": "true"
+                                            },
+                                            "data": {
+                                                "properties": {
+                                                    "id_user": {
+                                                        "type": "integer",
+                                                        "example": 777
+                                                    },
+                                                    "active_user": {
+                                                        "type": "boolean",
+                                                        "example": true
+                                                    },
+                                                    "type_user": {
+                                                        "type": "number",
+                                                        "example": 4
+                                                    },
+                                                    "tax_person_user": {
+                                                        "type": "string",
+                                                        "example": "123456789"
+                                                    },
+                                                    "pin_user": {
+                                                        "type": "string",
+                                                        "example": "11223344556677"
+                                                    },
+                                                    "tin_company_user": {
+                                                        "type": "string",
+                                                        "example": "123456789"
+                                                    },
+                                                    "is_admin_user": {
+                                                        "type": "boolean",
+                                                        "example": false
+                                                    },
+                                                    "mobile_user": {
+                                                        "type": "string",
+                                                        "example": "998991232333"
+                                                    },
+                                                    "home_tel_user": {
+                                                        "type": "string",
+                                                        "example": "998711232333"
+                                                    },
+                                                    "token_user": {
+                                                        "type": "string",
+                                                        "example": null
+                                                    },
+                                                    "company_right_user": {
+                                                        "type": "string",
+                                                        "example": null
+                                                    },
+                                                    "ws_right_user": {
+                                                        "type": "string",
+                                                        "example": null
+                                                    },
+                                                    "visible_data_user": {
+                                                        "type": "string",
+                                                        "example": null
+                                                    },
+                                                    "ml_right_user": {
+                                                        "type": "number",
+                                                        "example": 1
+                                                    },
+                                                    "su_right_user": {
+                                                        "type": "string",
+                                                        "example": null
+                                                    },
+                                                    "soato_minlab_user": {
+                                                        "type": "string",
+                                                        "example": "1726      "
+                                                    },
+                                                    "email_user": {
+                                                        "type": "string",
+                                                        "example": "emaildsf@site.uz"
+                                                    },
+                                                    "soato_company_user": {
+                                                        "type": "string",
+                                                        "example": null
+                                                    },
+                                                    "user_oked_user": {
+                                                        "type": "string",
+                                                        "example": null
+                                                    },
+                                                    "family_person_user": {
+                                                        "type": "string",
+                                                        "example": "Пользователь"
+                                                    },
+                                                    "name_person_user": {
+                                                        "type": "string",
+                                                        "example": "MinZTO"
+                                                    },
+                                                    "middlename_person_user": {
+                                                        "type": "string",
+                                                        "example": "Ташкент"
+                                                    },
+                                                    "data_user": {
+                                                        "type": "string",
+                                                        "example": null
+                                                    },
+                                                    "residential_address_user": {
+                                                        "type": "string",
+                                                        "example": null
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "User updated successfully"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorized to update this users."
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Admin Users"
+                ],
+                "operationId": "/admin/users/store",
+                "parameters": [
+                    {
+                        "name": "active_user",
+                        "in": "path",
+                        "description": "Активность пользователя",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "tax_person_user",
+                        "in": "query",
+                        "description": "ИНН пользователя",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "pin_user",
+                        "in": "query",
+                        "description": "ПИНФЛ пользователя",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type_user",
+                        "in": "query",
+                        "description": "Тип пользователя",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "Пароль",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "soato_minlab_user",
+                        "in": "query",
+                        "description": "СОАТО сотрудника минЗТО",
+                        "required": false,
+                        "explode": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "email_user",
+                        "in": "query",
+                        "description": "E-mail пользователя",
+                        "required": false,
+                        "explode": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Users updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "success": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "true",
+                                                    "false"
+                                                ],
+                                                "example": "true"
+                                            },
+                                            "data": {
+                                                "properties": {
+                                                    "id_user": {
+                                                        "type": "integer",
+                                                        "example": 777
+                                                    },
+                                                    "active_user": {
+                                                        "type": "boolean",
+                                                        "example": true
+                                                    },
+                                                    "type_user": {
+                                                        "type": "number",
+                                                        "example": 4
+                                                    },
+                                                    "tax_person_user": {
+                                                        "type": "string",
+                                                        "example": "123456789"
+                                                    },
+                                                    "pin_user": {
+                                                        "type": "string",
+                                                        "example": "11223344556677"
+                                                    },
+                                                    "email_user": {
+                                                        "type": "string",
+                                                        "example": "emaildsf@site.uz"
+                                                    },
+                                                    "soato_minlab_user": {
+                                                        "type": "string",
+                                                        "example": "1726      "
+                                                    },
+                                                    "family_person_user": {
+                                                        "type": "string",
+                                                        "example": "Пользователь"
+                                                    },
+                                                    "name_person_user": {
+                                                        "type": "string",
+                                                        "example": "MinZTO"
+                                                    },
+                                                    "middlename_person_user": {
+                                                        "type": "string",
+                                                        "example": "Ташкент"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "User saved successfully"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorized to saved this users."
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Admin Users"
+                ],
+                "operationId": "/admin/users/destroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID пользователя",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "success": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "true",
+                                                    "false"
+                                                ],
+                                                "example": "true"
+                                            },
+                                            "data": {
+                                                "type": "string",
+                                                "example": "777"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorized to update this users."
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            }
+        },
+        "/contract/approve/": {
+            "put": {
+                "tags": [
+                    "Contract"
+                ],
+                "operationId": "/contract/approve/",
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/ApproveCodeApprove"
+                },
+                "responses": {
+                    "200": {
+                        "description": "Contract updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "data": {
+                                                "$ref": "#/components/schemas/ApproveCode"
+                                            },
+                                            "success": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "true",
+                                                    "false"
+                                                ],
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Contract updated successfully"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorized to update this lc"
+                    },
+                    "404": {
+                        "description": "Contract not found"
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Contract"
+                ],
+                "operationId": "/contract/approve/",
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/ApproveCodeRequest"
+                },
+                "responses": {
+                    "200": {
+                        "description": "Contract saved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "data": {
+                                                "$ref": "#/components/schemas/ApproveCode"
+                                            },
+                                            "success": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "true",
+                                                    "false"
+                                                ],
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Contract retrieved successfully"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorized to create this lc"
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            }
+        },
+        "/helpers/constants": {
+            "get": {
+                "tags": [
+                    "helpers"
+                ],
+                "operationId": "/helpers/constants",
+                "responses": {
+                    "200": {
+                        "description": "Returns base constants",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            }
+        },
+        "/helpers/errors": {
+            "get": {
+                "tags": [
+                    "helpers"
+                ],
+                "operationId": "/helpers/errors",
+                "responses": {
+                    "200": {
+                        "description": "Returns errors list",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            }
+        },
+        "/helpers/individ": {
+            "get": {
+                "tags": [
+                    "helpers"
+                ],
+                "operationId": "/helpers/individ",
+                "parameters": [
+                    {
+                        "name": "pin",
+                        "in": "path",
+                        "description": "ПИН ФЛ",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "passport",
+                        "in": "path",
+                        "description": "Пасспорт",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns base constants",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            }
+        },
+        "/helpers/search/kodp": {
+            "get": {
+                "tags": [
+                    "helpers"
+                ],
+                "operationId": "/helpers/search/kodp",
+                "parameters": [
+                    {
+                        "name": "lang",
+                        "in": "path",
+                        "description": "Язык",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "path",
+                        "description": "Поиск",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Kodp retrieved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            }
+        },
+        "/helpers/kodp": {
+            "get": {
+                "tags": [
+                    "helpers"
+                ],
+                "operationId": "/helpers/kodp",
+                "responses": {
+                    "200": {
+                        "description": "Returns kodp",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            }
+        },
+        "/contract/": {
+            "post": {
+                "tags": [
+                    "Contract"
+                ],
+                "operationId": "/contract/",
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/LcStore"
+                },
+                "responses": {
+                    "200": {
+                        "description": "Contract saved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "data": {
+                                                "$ref": "#/components/schemas/Lc"
+                                            },
+                                            "success": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "true",
+                                                    "false"
+                                                ],
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Contract retrieved successfully"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorized to create this lc"
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            }
+        },
+        "/contract/{id}": {
+            "get": {
+                "tags": [
+                    "Contract"
+                ],
+                "operationId": "getContractById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Status values that needed to be considered for filter",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Contract saved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "data": {
+                                                "$ref": "#/components/schemas/Lc"
+                                            },
+                                            "success": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "true",
+                                                    "false"
+                                                ],
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Contract retrieved successfully"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Contract not found"
+                    },
+                    "405": {
+                        "description": "Validation exception"
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Contract"
+                ],
+                "operationId": "/contracts/{id}",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Status values that needed to be considered for filter",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/LcUpdate"
+                },
+                "responses": {
+                    "200": {
+                        "description": "Contract updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "data": {
+                                                "$ref": "#/components/schemas/Lc"
+                                            },
+                                            "success": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "true",
+                                                    "false"
+                                                ],
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Contract updated successfully"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorized to update this lc"
+                    },
+                    "404": {
+                        "description": "Contract not found"
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Contract"
+                ],
+                "operationId": "/contract/{id}",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор ТД",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "date_end_lc",
+                        "in": "query",
+                        "description": "Дата конца ТД",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "date"
+                        }
+                    },
+                    {
+                        "name": "article_lc",
+                        "in": "query",
+                        "description": "Статья",
+                        "required": false,
+                        "explode": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "order_lc",
+                        "in": "query",
+                        "description": "Приказ",
+                        "required": false,
+                        "explode": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "date_order_lc",
+                        "in": "query",
+                        "description": "Дата приказа",
+                        "required": false,
+                        "explode": true,
+                        "schema": {
+                            "type": "date"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/Contract"
+                },
+                "responses": {
+                    "200": {
+                        "description": "Contract stoped successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "success": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "true",
+                                                    "false"
+                                                ],
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Contract stoped successfully"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorized to update this lc"
+                    },
+                    "404": {
+                        "description": "Contract not found"
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            }
+        },
+        "/workbook/{pin}": {
+            "get": {
+                "tags": [
+                    "Contract"
+                ],
+                "operationId": "/workbook/{pin}",
+                "parameters": [
+                    {
+                        "name": "pin",
+                        "in": "path",
+                        "description": "Status values that needed to be considered for filter",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Contract saved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "data": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/components/schemas/Lc"
+                                                },
+                                                "maxItems": 20
+                                            },
+                                            "success": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "true",
+                                                    "false"
+                                                ],
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Contract retrieved successfully"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Contract not found"
+                    },
+                    "405": {
+                        "description": "Validation exception"
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            }
+        },
+        "/workbook/{pin}/experience": {
+            "get": {
+                "tags": [
+                    "Contract"
+                ],
+                "operationId": "/workbook/{pin}/experience",
+                "parameters": [
+                    {
+                        "name": "pin",
+                        "in": "path",
+                        "description": "Status values that needed to be considered for filter",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Expirience retrieved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "data": {
+                                                "type": "number",
+                                                "example": 5
+                                            },
+                                            "success": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "true",
+                                                    "false"
+                                                ],
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Expirience retrieved successfully"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Workbook not found"
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            }
+        },
+        "/contracts/archive/{tin}": {
+            "get": {
+                "tags": [
+                    "Contract"
+                ],
+                "operationId": "/contracts/archive/{tin}",
+                "parameters": [
+                    {
+                        "name": "tin",
+                        "in": "path",
+                        "description": "Status values that needed to be considered for filter",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "description": "Date values that needed to be considered for filter",
+                        "required": false,
+                        "explode": true,
+                        "schema": {
+                            "type": "date"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Contracts retrieved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "data": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/components/schemas/Lc"
+                                                },
+                                                "maxItems": 20
+                                            },
+                                            "success": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "true",
+                                                    "false"
+                                                ],
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Contracts retrieved successfully"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Contract not found"
+                    },
+                    "405": {
+                        "description": "Validation exception"
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            }
+        },
+        "/contracts/{tin}": {
+            "get": {
+                "tags": [
+                    "Contract"
+                ],
+                "operationId": "/contracts/{tin}",
+                "parameters": [
+                    {
+                        "name": "tin",
+                        "in": "path",
+                        "description": "Status values that needed to be considered for filter",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Contracts retrieved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "data": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/components/schemas/Lc"
+                                                },
+                                                "maxItems": 20
+                                            },
+                                            "success": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "true",
+                                                    "false"
+                                                ],
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Contracts retrieved successfully"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Contract not found"
+                    },
+                    "405": {
+                        "description": "Validation exception"
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            }
+        },
+        "/person/{pin}": {
+            "get": {
+                "tags": [
+                    "Contract"
+                ],
+                "operationId": "/person/{pin}",
+                "parameters": [
+                    {
+                        "name": "pin",
+                        "in": "path",
+                        "description": "Status values that needed to be considered for filter",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Persons workbook retrieved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "data": {
+                                                "$ref": "#/components/schemas/Lc"
+                                            },
+                                            "success": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "true",
+                                                    "false"
+                                                ],
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Persons workbook retrieved successfully"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Contract not found"
+                    },
+                    "405": {
+                        "description": "Validation exception"
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            }
+        },
+        "/contractsbystruct/{id_struct}": {
+            "get": {
+                "tags": [
+                    "Contract"
+                ],
+                "operationId": "/contractsbystruct/{id_struct}",
+                "parameters": [
+                    {
+                        "name": "tin",
+                        "in": "path",
+                        "description": "Status values that needed to be considered for filter",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Contract saved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "data": {
+                                                "$ref": "#/components/schemas/Lc"
+                                            },
+                                            "success": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "true",
+                                                    "false"
+                                                ],
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Contract retrieved successfully"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            }
+        },
+        "/company/{tin}/statistic": {
+            "get": {
+                "tags": [
+                    "Company"
+                ],
+                "operationId": "/company/{tin}/statistic",
+                "parameters": [
+                    {
+                        "name": "tin",
+                        "in": "path",
+                        "description": "Status values that needed to be considered for filter",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Contract saved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "data": {
+                                                "properties": {
+                                                    "tin_company_structure": {
+                                                        "type": "integer",
+                                                        "example": 123456789
+                                                    },
+                                                    "total_positions": {
+                                                        "type": "integer",
+                                                        "example": 4
+                                                    },
+                                                    "total_active_contracts": {
+                                                        "type": "integer",
+                                                        "example": 3
+                                                    },
+                                                    "active_contracts_in_type_emp_1": {
+                                                        "type": "integer",
+                                                        "example": 3
+                                                    },
+                                                    "active_contracts_in_type_emp_2": {
+                                                        "type": "integer",
+                                                        "example": 0
+                                                    },
+                                                    "active_contracts_in_type_emp_3": {
+                                                        "type": "integer",
+                                                        "example": 0
+                                                    },
+                                                    "active_contracts_in_type_emp_4": {
+                                                        "type": "integer",
+                                                        "example": 0
+                                                    },
+                                                    "active_contracts_in_type_emp_5": {
+                                                        "type": "integer",
+                                                        "example": 0
+                                                    },
+                                                    "active_contracts_in_type_emp_6": {
+                                                        "type": "integer",
+                                                        "example": 0
+                                                    },
+                                                    "active_contracts_in_type_emp_7": {
+                                                        "type": "integer",
+                                                        "example": 0
+                                                    },
+                                                    "active_contracts_in_gender_male": {
+                                                        "type": "integer",
+                                                        "example": 2
+                                                    },
+                                                    "active_contracts_in_gender_female": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "total_rates": {
+                                                        "type": "integer",
+                                                        "example": 5
+                                                    },
+                                                    "closed_rates": {
+                                                        "type": "integer",
+                                                        "example": 2.25
+                                                    },
+                                                    "total_contracts": {
+                                                        "type": "integer",
+                                                        "example": 3
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "success": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "true",
+                                                    "false"
+                                                ],
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Statistic retrived successfully"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/helpers/search/nskz": {
+            "get": {
+                "tags": [
+                    "helpers"
+                ],
+                "operationId": "/helpers/search/nskz",
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "path",
+                        "description": "Поиск",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Nskz retrieved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            }
+        },
+        "/helpers/nskz": {
+            "get": {
+                "tags": [
+                    "helpers"
+                ],
+                "operationId": "/helpers/nskz",
+                "responses": {
+                    "200": {
+                        "description": "Returns nskz",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            }
+        },
+        "/position/": {
+            "post": {
+                "tags": [
+                    "Post"
+                ],
+                "operationId": "/position/",
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/PositionsStore"
+                },
+                "responses": {
+                    "200": {
+                        "description": "Post saved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "data": {
+                                                "type": "object",
+                                                "$ref": "#/components/schemas/Positions"
+                                            },
+                                            "success": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "true",
+                                                    "false"
+                                                ],
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Post retrieved successfully"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorized to save this position"
+                    },
+                    "404": {
+                        "description": "Parent position not found"
+                    },
+                    "424": {
+                        "description": "SMTH wrong with dates"
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            }
+        },
+        "/position/{id}": {
+            "get": {
+                "tags": [
+                    "Post"
+                ],
+                "operationId": "/position/",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Status values that needed to be considered for filter",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Post saved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "data": {
+                                                "$ref": "#/components/schemas/Positions"
+                                            },
+                                            "success": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "true",
+                                                    "false"
+                                                ],
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Post retrieved successfully"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Post not found"
+                    },
+                    "405": {
+                        "description": "Validation exception"
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Post"
+                ],
+                "operationId": "/position/{id}",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Status values that needed to be considered for filter",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/PositionsUpdate"
+                },
+                "responses": {
+                    "200": {
+                        "description": "Post saved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "data": {
+                                                "$ref": "#/components/schemas/Positions"
+                                            },
+                                            "success": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "true",
+                                                    "false"
+                                                ],
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Post retrieved successfully"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorized to update this position"
+                    },
+                    "404": {
+                        "description": "Parent structure not found"
+                    },
+                    "424": {
+                        "description": "SMTH wrong with dates"
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Post"
+                ],
+                "operationId": "/position/{id}",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Status values that needed to be considered for filter",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/PositionsDestroy"
+                },
+                "responses": {
+                    "200": {
+                        "description": "Post saved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "data": {
+                                                "$ref": "#/components/schemas/Positions"
+                                            },
+                                            "success": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "true",
+                                                    "false"
+                                                ],
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Post retrieved successfully"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            }
+        },
+        "/positions/{tin}": {
+            "get": {
+                "tags": [
+                    "Post"
+                ],
+                "operationId": "/positions/{tin}",
+                "parameters": [
+                    {
+                        "name": "tin",
+                        "in": "path",
+                        "description": "Status values that needed to be considered for filter",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Post saved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "data": {
+                                                "$ref": "#/components/schemas/Positions"
+                                            },
+                                            "success": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "true",
+                                                    "false"
+                                                ],
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Post retrieved successfully"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            }
+        },
+        "/reports/base": {
+            "get": {
+                "tags": [
+                    "Reports"
+                ],
+                "operationId": "//reports/base",
+                "responses": {
+                    "200": {
+                        "description": "Statistic retrieved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "data": {
+                                                "properties": {
+                                                    "tin": {
+                                                        "type": "integer",
+                                                        "example": 123456789
+                                                    },
+                                                    "company_name": {
+                                                        "type": "string",
+                                                        "example": "Roga&Kopita"
+                                                    },
+                                                    "total_contracts": {
+                                                        "type": "integer",
+                                                        "example": 3
+                                                    },
+                                                    "total_active_contracts": {
+                                                        "type": "integer",
+                                                        "example": 3
+                                                    },
+                                                    "active_contracts_in_type_emp_1": {
+                                                        "type": "integer",
+                                                        "example": 3
+                                                    },
+                                                    "active_contracts_in_type_emp_2": {
+                                                        "type": "integer",
+                                                        "example": 0
+                                                    },
+                                                    "active_contracts_in_type_emp_3": {
+                                                        "type": "integer",
+                                                        "example": 0
+                                                    },
+                                                    "active_contracts_in_type_emp_4": {
+                                                        "type": "integer",
+                                                        "example": 0
+                                                    },
+                                                    "active_contracts_in_type_emp_5": {
+                                                        "type": "integer",
+                                                        "example": 0
+                                                    },
+                                                    "active_contracts_in_type_emp_6": {
+                                                        "type": "integer",
+                                                        "example": 0
+                                                    },
+                                                    "active_contracts_in_type_emp_7": {
+                                                        "type": "integer",
+                                                        "example": 0
+                                                    },
+                                                    "active_contracts_in_gender_male": {
+                                                        "type": "integer",
+                                                        "example": 2
+                                                    },
+                                                    "active_contracts_in_gender_female": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "total_rates": {
+                                                        "type": "integer",
+                                                        "example": 5
+                                                    },
+                                                    "closed_rates": {
+                                                        "type": "integer",
+                                                        "example": 2.25
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "success": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "true",
+                                                    "false"
+                                                ],
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Statistic retrieved successfully"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/reports/basebysoato": {
+            "get": {
+                "tags": [
+                    "Reports"
+                ],
+                "operationId": "/reports/basebysoato",
+                "parameters": [
+                    {
+                        "name": "soato",
+                        "in": "query",
+                        "description": "СОАТО региона",
+                        "required": false,
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Statistic retrieved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "data": {
+                                                "properties": {
+                                                    "soato": {
+                                                        "type": "string",
+                                                        "example": "1726"
+                                                    },
+                                                    "company_count": {
+                                                        "type": "string",
+                                                        "example": "10"
+                                                    },
+                                                    "workplaces": {
+                                                        "type": "string",
+                                                        "example": "54"
+                                                    },
+                                                    "vacancies": {
+                                                        "type": "string",
+                                                        "example": "17"
+                                                    },
+                                                    "total_rates": {
+                                                        "type": "string",
+                                                        "example": "48.75"
+                                                    },
+                                                    "vacant_rates": {
+                                                        "type": "string",
+                                                        "example": "17.00"
+                                                    },
+                                                    "employed": {
+                                                        "type": "string",
+                                                        "example": "37"
+                                                    },
+                                                    "active_contracts_in_gender_male": {
+                                                        "type": "string",
+                                                        "example": "32"
+                                                    },
+                                                    "active_contracts_in_gender_female": {
+                                                        "type": "string",
+                                                        "example": "5"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "success": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "true",
+                                                    "false"
+                                                ],
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Statistic retrieved successfully"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/helpers/search/soato": {
+            "get": {
+                "tags": [
+                    "helpers"
+                ],
+                "operationId": "/helpers/search/soato",
+                "parameters": [
+                    {
+                        "name": "lang",
+                        "in": "path",
+                        "description": "Язык",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "path",
+                        "description": "Поиск",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Soato retrieved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            }
+        },
+        "/helpers/soato": {
+            "get": {
+                "tags": [
+                    "helpers"
+                ],
+                "operationId": "/helpers/soato",
+                "responses": {
+                    "200": {
+                        "description": "Returns soato",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            }
+        },
+        "/structures/": {
+            "post": {
+                "tags": [
+                    "Department"
+                ],
+                "operationId": "/structures/",
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/StructuresStore"
+                },
+                "responses": {
+                    "200": {
+                        "description": "Department saved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "data": {
+                                                "$ref": "#/components/schemas/Structures"
+                                            },
+                                            "success": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "true",
+                                                    "false"
+                                                ],
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Contract retrieved successfully"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorized to create this structure"
+                    },
+                    "404": {
+                        "description": "Parent structure not found"
+                    },
+                    "424": {
+                        "description": "SMTH wrong with dates"
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            }
+        },
+        "/structure/{id}": {
+            "get": {
+                "tags": [
+                    "Department"
+                ],
+                "operationId": "/structure/",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Status values that needed to be considered for filter",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Department saved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "data": {
+                                                "$ref": "#/components/schemas/Structures"
+                                            },
+                                            "success": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "true",
+                                                    "false"
+                                                ],
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Contract retrieved successfully"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorized to show this structure"
+                    },
+                    "404": {
+                        "description": "Department not found"
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Department"
+                ],
+                "operationId": "/structure/{id}",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Status values that needed to be considered for filter",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/StructuresUpdate"
+                },
+                "responses": {
+                    "200": {
+                        "description": "Department updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "data": {
+                                                "$ref": "#/components/schemas/Structures"
+                                            },
+                                            "success": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "true",
+                                                    "false"
+                                                ],
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Contract updated successfully"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorized to update this structure"
+                    },
+                    "404": {
+                        "description": "Parent structure not found"
+                    },
+                    "424": {
+                        "description": "SMTH wrong with dates"
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Department"
+                ],
+                "operationId": "/structure/{id}",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Status values that needed to be considered for filter",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "description": "Status values that needed to be considered for filter",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "date"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/StructuresDestroy"
+                },
+                "responses": {
+                    "200": {
+                        "description": "Department stoped successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "success": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "true",
+                                                    "false"
+                                                ],
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Department stoped successfully"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorized to update this structure"
+                    },
+                    "404": {
+                        "description": "Parent structure not found"
+                    },
+                    "424": {
+                        "description": "SMTH wrong with dates"
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            }
+        },
+        "/structures/{tin}": {
+            "get": {
+                "tags": [
+                    "Department"
+                ],
+                "operationId": "/structures/{tin}",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Status values that needed to be considered for filter",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Department saved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "data": {
+                                                "$ref": "#/components/schemas/Structures"
+                                            },
+                                            "success": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "true",
+                                                    "false"
+                                                ],
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Contract retrieved successfully"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            }
+        },
+        "/company/{tin}": {
+            "get": {
+                "tags": [
+                    "Company"
+                ],
+                "operationId": "/company/{tin}",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Status values that needed to be considered for filter",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Department saved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "data": {
+                                                "$ref": "#/components/schemas/Structures"
+                                            },
+                                            "success": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "true",
+                                                    "false"
+                                                ],
+                                                "example": "success"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Contract retrieved successfully"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            }
+        },
+        "/user/": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "/user/",
+                "responses": {
+                    "200": {
+                        "description": "Users retrieved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            }
+        },
+        "/user/{id}": {
+            "put": {
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "/user/{id}",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id юзера",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "residential_address_user",
+                        "in": "query",
+                        "description": "Адрес проживания",
+                        "required": false,
+                        "explode": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "home_tel_user",
+                        "in": "query",
+                        "description": "Номер домашнего телефона",
+                        "required": false,
+                        "explode": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "mobile_user",
+                        "in": "query",
+                        "description": "Номер мобильного телефона",
+                        "required": false,
+                        "explode": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "mobile_user",
+                        "in": "query",
+                        "description": "E-mail пользователя",
+                        "required": false,
+                        "explode": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Users updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "success": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "true",
+                                                    "false"
+                                                ],
+                                                "example": "success"
+                                            },
+                                            "data": {
+                                                "$ref": "#/components/schemas/Users"
+                                            },
+                                            "message": {
+                                                "type": "string",
+                                                "example": "Contract retrieved successfully"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorized to update this users."
+                    }
+                },
+                "security": [
+                    {
+                        "etk_auth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Kodp": {
+                "title": "КОДП",
+                "description": "КОДП",
+                "properties": {
+                    "pn": {
+                        "title": "Порядковый номер",
+                        "description": "Порядковый номер",
+                        "format": "string"
+                    },
+                    "_id_": {
+                        "title": "Ключ",
+                        "description": "Порядковый номер записи в таблице",
+                        "format": "int32"
+                    },
+                    "range": {
+                        "title": "Диапазон квалификационных разрядов",
+                        "description": "Диапазон квалификационных разрядов",
+                        "format": "string"
+                    },
+                    "specs": {
+                        "title": "Наименование профессий рабочих",
+                        "description": "Наименование профессий рабочих",
+                        "format": "string"
+                    },
+                    "office": {
+                        "title": "Офис",
+                        "description": "Офис",
+                        "format": "string"
+                    },
+                    "worker": {
+                        "title": "Рабочие",
+                        "description": "Рабочие",
+                        "format": "string"
+                    },
+                    "name_ru": {
+                        "title": "Наименование профессий рабочих",
+                        "description": "Наименование профессий рабочих",
+                        "format": "string"
+                    },
+                    "name_uz": {
+                        "title": "Касблар номи",
+                        "description": "Касблар номи",
+                        "format": "string"
+                    },
+                    "education": {
+                        "title": "Образование",
+                        "description": "Образование",
+                        "format": "string"
+                    },
+                    "no_matter": {
+                        "title": "Не важно",
+                        "description": "Не важно",
+                        "format": "string"
+                    },
+                    "nskz_code": {
+                        "title": "Код по НСКЗ",
+                        "description": "Код по НСКЗ",
+                        "format": "int32"
+                    },
+                    "_parent_id_": {
+                        "title": "Ключ родителя",
+                        "description": "Номер родительской записи в таблице",
+                        "format": "int32"
+                    },
+                    "admin_staff": {
+                        "title": "Управленческий персонал",
+                        "description": "Управленческий персонал",
+                        "format": "string"
+                    },
+                    "agriculture": {
+                        "title": "Сельское хозяйство",
+                        "description": "Сельское хозяйство",
+                        "format": "string"
+                    },
+                    "min_education": {
+                        "title": "Требования к минимальному уровню образования",
+                        "description": "Требования к минимальному уровню образования",
+                        "format": "string"
+                    },
+                    "tech_personal": {
+                        "title": "Технический персонал",
+                        "description": "Технический персонал",
+                        "format": "string"
+                    },
+                    "direction_code": {
+                        "title": "Код направления образования",
+                        "description": "Код направления образования",
+                        "format": "string"
+                    },
+                    "service_personal": {
+                        "title": "Обслуживающий персонал",
+                        "description": "Обслуживающий персонал",
+                        "format": "string"
+                    },
+                    "personal_category": {
+                        "title": "Категория персонала",
+                        "description": "Категория персонала",
+                        "format": "string"
+                    },
+                    "productive_personal": {
+                        "title": "Производственный персонал",
+                        "description": "Производственный персонал",
+                        "format": "string"
+                    },
+                    "type": {
+                        "title": "Дополнительный идентификатор кодп",
+                        "description": "ТК порядковый номер не уникальный необходимо добавить 2 ключ для уникальности",
+                        "format": "string"
+                    },
+                    "trade_food_services": {
+                        "title": "Торговля/общепит/услуги",
+                        "description": "Торговля/общепит/услуги",
+                        "format": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "pn": "2250.",
+                    "_id_": "2302",
+                    "range": "1 — 8",
+                    "specs": null,
+                    "office": null,
+                    "worker": "1",
+                    "name_ru": "Машинист тепловоза",
+                    "name_uz": "Тепловоз машинисти",
+                    "education": null,
+                    "no_matter": null,
+                    "nskz_code": "8311",
+                    "_parent_id_": null,
+                    "admin_staff": null,
+                    "agriculture": null,
+                    "min_education": "ССПО",
+                    "tech_personal": null,
+                    "direction_code": "3310600",
+                    "service_personal": null,
+                    "personal_category": "П",
+                    "productive_personal": "1",
+                    "trade_food_services": null
+                }
+            },
+            "Lc": {
+                "title": "Трудовые договоры",
+                "description": "Трудовые договоры",
+                "required": [
+                    "pin_lc",
+                    "tin_lc",
+                    "name_company_lc",
+                    "code_prof_lc",
+                    "tax_person_lc",
+                    "type_emp_lc",
+                    "passport_lc",
+                    "name_person_lc",
+                    "family_person_lc",
+                    "main_work_lc",
+                    "date_start_lc"
+                ],
+                "properties": {
+                    "id_lc": {
+                        "title": "Идентификатор ТД",
+                        "description": "id_lc",
+                        "format": "int64"
+                    },
+                    "parent_id_lc": {
+                        "title": "Уникальный идентификатор родительской записи",
+                        "description": "Родительская запись",
+                        "format": "int64"
+                    },
+                    "active_lc": {
+                        "title": "Признак актуальности ТД",
+                        "description": "Признак актуальности ТД",
+                        "format": "boolean"
+                    },
+                    "datetime_lc": {
+                        "title": "Дата создания записи в БД",
+                        "description": "Дата создания записи в БД",
+                        "format": "timestamp"
+                    },
+                    "type_lc": {
+                        "title": "Типизация ТД",
+                        "description": "Типизация ТД",
+                        "format": "int2"
+                    },
+                    "direct_lc": {
+                        "title": "Направление записи ТД",
+                        "description": "Направление записи ТД",
+                        "format": "boolean"
+                    },
+                    "edit_id_lc": {
+                        "title": "Редактируемая запись",
+                        "description": "Редактируемая запись",
+                        "format": "int64"
+                    },
+                    "pin_lc": {
+                        "title": "Идентификатор ФЛ",
+                        "description": "Идентификатор ФЛ",
+                        "format": "string"
+                    },
+                    "tax_person_lc": {
+                        "title": "ИНН ФЛ в ТД",
+                        "description": "ИНН ФЛ в ТД",
+                        "format": "string"
+                    },
+                    "passport_lc": {
+                        "title": "Паспорт",
+                        "description": "Паспорт",
+                        "format": "string"
+                    },
+                    "family_person_lc": {
+                        "title": "Фамилия",
+                        "description": "Фамилия",
+                        "format": "string"
+                    },
+                    "name_person_lc": {
+                        "title": "Имя",
+                        "description": "Имя",
+                        "format": "string"
+                    },
+                    "middlename_person_lc": {
+                        "title": "Отчество",
+                        "description": "Отчество",
+                        "format": "string"
+                    },
+                    "tin_lc": {
+                        "title": "Идентификатор ЮЛ (ИНН)",
+                        "description": "Идентификатор ЮЛ (ИНН)",
+                        "format": "string"
+                    },
+                    "name_company_lc": {
+                        "title": "Наименование ЮЛ",
+                        "description": "Наименование ЮЛ",
+                        "format": "string"
+                    },
+                    "oked_lc": {
+                        "title": "ОКЭД в ТД",
+                        "description": "ОКЭД в ТД",
+                        "format": "string"
+                    },
+                    "regionent_lc": {
+                        "title": "СОАТО ЮЛ",
+                        "description": "СОАТО ЮЛ",
+                        "format": "string"
+                    },
+                    "name_structure_lc": {
+                        "title": "Подразделение",
+                        "description": "Подразделение",
+                        "format": "string"
+                    },
+                    "name_position_lc": {
+                        "title": "Должность",
+                        "description": "Должность",
+                        "format": "string"
+                    },
+                    "code_prof_lc": {
+                        "title": "Код профессии, должности",
+                        "description": "Код профессии, должности",
+                        "format": "string"
+                    },
+                    "id_position_lc": {
+                        "title": "Уникальный идентификатор должности",
+                        "description": "Уникальный идентификатор должности",
+                        "format": "int64"
+                    },
+                    "salary_lc": {
+                        "title": "Зарплата",
+                        "description": "Зарплата",
+                        "format": "float"
+                    },
+                    "flag_bonus_lc": {
+                        "title": "Признак надбавка",
+                        "description": "Признак надбавка",
+                        "format": "boolean"
+                    },
+                    "term_salary_lc": {
+                        "title": "Условия оплаты труда",
+                        "description": "Условия оплаты труда",
+                        "format": "int2"
+                    },
+                    "type_emp_lc": {
+                        "title": "Вид занятости ТД",
+                        "description": "Вид занятости ТД",
+                        "format": "int2"
+                    },
+                    "code_nskz_lc": {
+                        "title": "Код по НСКЗ",
+                        "description": "Код по НСКЗ",
+                        "format": "string"
+                    },
+                    "order_lc": {
+                        "title": "Приказ",
+                        "description": "Приказ",
+                        "format": "string"
+                    },
+                    "date_order_lc": {
+                        "title": "Дата приказа",
+                        "description": "Дата приказа",
+                        "format": "date"
+                    },
+                    "article_lc": {
+                        "title": "Статья",
+                        "description": "Статья",
+                        "format": "string"
+                    },
+                    "code_spec_spo_lc": {
+                        "title": "Учебная специальность СПО",
+                        "description": "Учебная специальность СПО",
+                        "format": "string"
+                    },
+                    "code_spo_lc": {
+                        "title": "Код специальности СПО",
+                        "description": "Код специальности СПО",
+                        "format": "string"
+                    },
+                    "spec_vo_lc": {
+                        "title": "Учебная специальность ВО",
+                        "description": "Учебная специальность ВО",
+                        "format": "string"
+                    },
+                    "code_vo_lc": {
+                        "title": "Код специальности ВО",
+                        "description": "Код специальности ВО",
+                        "format": "string"
+                    },
+                    "accept_employer_lc": {
+                        "title": "Подтверждение работодателя",
+                        "description": "Подтверждение работодателя",
+                        "format": "string"
+                    },
+                    "id_lc_wh": {
+                        "title": "Идентификатор записи в Хранилище",
+                        "description": "Идентификатор записи в Хранилище",
+                        "format": "int64"
+                    },
+                    "value_fields_lc": {
+                        "title": "Значения полей ТД",
+                        "description": "Значения полей ТД",
+                        "format": "array"
+                    },
+                    "owner_lc": {
+                        "title": "Идентификатор пользователя, создавшего запись",
+                        "description": "Идентификатор пользователя, создавшего запись",
+                        "format": "string"
+                    },
+                    "owner_pin_lc": {
+                        "title": "ПИНФЛ пользователя, создавшего запись",
+                        "description": "ПИНФЛ пользователя, создавшего запись",
+                        "format": "string"
+                    },
+                    "owner_region_lc": {
+                        "title": "СОАТО пользователя, создавшего запись",
+                        "description": "СОАТО пользователя, создавшего запись",
+                        "format": "boolean"
+                    },
+                    "owner_tin_lc": {
+                        "title": "ИНН компании, пользователя, создавшего запись",
+                        "description": "ИНН компании, пользователя, создавшего запись",
+                        "format": "int64"
+                    },
+                    "date_of_contract_lc": {
+                        "title": "Дата заключения ТД",
+                        "description": "Дата заключения ТД",
+                        "format": "date"
+                    },
+                    "main_work_lc": {
+                        "title": "Признак основной работы",
+                        "description": "Признак основной работы",
+                        "format": "string"
+                    },
+                    "id_structure_lc": {
+                        "title": "Уникальный идентификатор структуры организации",
+                        "description": "Уникальный идентификатор структуры организации",
+                        "format": "int64"
+                    },
+                    "id_company_lc": {
+                        "title": "Уникальный идентификатор организации",
+                        "description": "Уникальный идентификатор организации",
+                        "format": "int64"
+                    },
+                    "date_start_lc": {
+                        "title": "Дата начала ТД",
+                        "description": "Дата начала ТД",
+                        "format": "date"
+                    },
+                    "date_end_lc": {
+                        "title": "Дата конца ТД",
+                        "description": "Дата конца ТД",
+                        "format": "date"
+                    },
+                    "code_personal_category_lc": {
+                        "title": "Категория персонала",
+                        "description": "Категория персонала по кодп",
+                        "format": "string"
+                    },
+                    "rate_lc": {
+                        "title": "Ставка договора",
+                        "description": "Ставка договора",
+                        "format": "numeric"
+                    },
+                    "approve_contract_employee_lc": {
+                        "title": "Подтверждение со стороны сотрудника",
+                        "description": "Подтверждение со стороны сотрудника",
+                        "format": "boolean"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "id_lc": 11888,
+                    "parent_id_lc": 9,
+                    "active_lc": true,
+                    "datetime_lc": "2018-11-29T12:42:33.141459",
+                    "type_lc": 1,
+                    "direct_lc": false,
+                    "edit_id_lc": null,
+                    "pin_lc": "10100000000001",
+                    "tax_person_lc": "100000001",
+                    "passport_lc": "AA1000001",
+                    "family_person_lc": "F1",
+                    "name_person_lc": "N1",
+                    "middlename_person_lc": null,
+                    "tin_lc": "100000005",
+                    "name_company_lc": "ORG2",
+                    "oked_lc": "10002",
+                    "regionent_lc": "170311",
+                    "name_structure_lc": "ORG2",
+                    "name_position_lc": "POS1_5",
+                    "code_prof_lc": "5",
+                    "id_position_lc": 5,
+                    "salary_lc": 1050000,
+                    "flag_bonus_lc": null,
+                    "term_salary_lc": 1,
+                    "type_emp_lc": 1,
+                    "code_nskz_lc": null,
+                    "order_lc": null,
+                    "date_order_lc": "2018-11-12",
+                    "article_lc": null,
+                    "code_spec_spo_lc": null,
+                    "code_spo_lc": null,
+                    "spec_vo_lc": null,
+                    "code_vo_lc": null,
+                    "accept_employer_lc": null,
+                    "accept_employee_lc": null,
+                    "id_lc_wh": null,
+                    "value_fields_lc": "{a:b}",
+                    "owner_lc": null,
+                    "owner_pin_lc": null,
+                    "owner_region_lc": null,
+                    "owner_tin_lc": null,
+                    "date_of_contract_lc": null,
+                    "main_work_lc": null,
+                    "id_structure_lc": null,
+                    "id_company_lc": null,
+                    "date_end_lc": null,
+                    "date_start_lc": "2018-11-28"
+                }
+            },
+            "LcWh": {
+                "title": "wh model",
+                "description": "wh model",
+                "required": [
+                    "datetime_wh",
+                    "type_wh",
+                    "pin_wh",
+                    "taxper_wh",
+                    "passport_wh",
+                    "familyperson_wh",
+                    "nameperson_wh",
+                    "midlenameperson_wh",
+                    "tin_wh",
+                    "name_wh",
+                    "oked_wh",
+                    "position_wh",
+                    "department_wh",
+                    "salary_wh"
+                ],
+                "properties": {
+                    "id_wh": {
+                        "title": "id_wh",
+                        "description": "id_wh",
+                        "format": "int64"
+                    },
+                    "parent_id_wh": {
+                        "title": "parent_id_wh",
+                        "description": "parent_id_wh",
+                        "format": "int64"
+                    },
+                    "active_wh": {
+                        "title": "active_wh",
+                        "description": "active_wh",
+                        "format": "boolean"
+                    },
+                    "datetime_wh": {
+                        "title": "datetime_wh",
+                        "description": "datetime_wh",
+                        "format": "string"
+                    },
+                    "type_wh": {
+                        "title": "type_wh",
+                        "description": "type_wh",
+                        "format": "int2"
+                    },
+                    "direct_wh": {
+                        "title": "direct_wh",
+                        "description": "direct_wh",
+                        "format": "boolean"
+                    },
+                    "edit_id_wh": {
+                        "title": "edit_id_wh",
+                        "description": "edit_id_wh",
+                        "format": "int64"
+                    },
+                    "pin_wh": {
+                        "title": "pin_wh",
+                        "description": "pin_wh",
+                        "format": "string"
+                    },
+                    "taxper_wh": {
+                        "title": "taxper_wh",
+                        "description": "taxper_wh",
+                        "format": "string"
+                    },
+                    "passport_wh": {
+                        "title": "passport_wh",
+                        "description": "passport_wh",
+                        "format": "string"
+                    },
+                    "familyperson_wh": {
+                        "title": "familyperson_wh",
+                        "description": "familyperson_wh",
+                        "format": "string"
+                    },
+                    "nameperson_wh": {
+                        "title": "nameperson_wh",
+                        "description": "nameperson_wh",
+                        "format": "string"
+                    },
+                    "midlenameperson_wh": {
+                        "title": "midlenameperson_wh",
+                        "description": "midlenameperson_wh",
+                        "format": "string"
+                    },
+                    "tin_wh": {
+                        "title": "tin_wh",
+                        "description": "tin_wh",
+                        "format": "string"
+                    },
+                    "name_wh": {
+                        "title": "name_wh",
+                        "description": "name_wh",
+                        "format": "string"
+                    },
+                    "oked_wh": {
+                        "title": "oked_wh",
+                        "description": "oked_wh",
+                        "format": "string"
+                    },
+                    "regionent_wh": {
+                        "title": "regionent_wh",
+                        "description": "regionent_wh",
+                        "format": "string"
+                    },
+                    "department_wh": {
+                        "title": "department_wh",
+                        "description": "department_wh",
+                        "format": "string"
+                    },
+                    "position_wh": {
+                        "title": "position_wh",
+                        "description": "position_wh",
+                        "format": "string"
+                    },
+                    "prof_wh": {
+                        "title": "prof_wh",
+                        "description": "prof_wh",
+                        "format": "string"
+                    },
+                    "id_position": {
+                        "title": "id_position",
+                        "description": "id_position",
+                        "format": "int64"
+                    },
+                    "salary_wh": {
+                        "title": "salary_wh",
+                        "description": "salary_wh",
+                        "format": "float"
+                    },
+                    "flagbonus_wh": {
+                        "title": "flagbonus_wh",
+                        "description": "flagbonus_wh",
+                        "format": "boolean"
+                    },
+                    "termsalaru_wh": {
+                        "title": "termsalaru_wh",
+                        "description": "termsalaru_wh",
+                        "format": "int2"
+                    },
+                    "typeemp_wh": {
+                        "title": "typeemp_wh",
+                        "description": "typeemp_wh",
+                        "format": "int2"
+                    },
+                    "codenskz_wh": {
+                        "title": "codenskz_wh",
+                        "description": "codenskz_wh",
+                        "format": "string"
+                    },
+                    "order_wh": {
+                        "title": "order_wh",
+                        "description": "order_wh",
+                        "format": "string"
+                    },
+                    "dateorder_wh": {
+                        "title": "dateorder_wh",
+                        "description": "dateorder_wh",
+                        "format": "date"
+                    },
+                    "article_wh": {
+                        "title": "article_wh",
+                        "description": "article_wh",
+                        "format": "string"
+                    },
+                    "specspo_wh": {
+                        "title": "specspo_wh",
+                        "description": "specspo_wh",
+                        "format": "string"
+                    },
+                    "codespo_ls": {
+                        "title": "codespo_ls",
+                        "description": "codespo_ls",
+                        "format": "string"
+                    },
+                    "specvo_ls": {
+                        "title": "specvo_ls",
+                        "description": "specvo_ls",
+                        "format": "string"
+                    },
+                    "codevo_ls": {
+                        "title": "codevo_ls",
+                        "description": "codevo_ls",
+                        "format": "string"
+                    },
+                    "acceptemployer_wh": {
+                        "title": "acceptemployer_wh",
+                        "description": "acceptemployer_wh",
+                        "format": "string"
+                    },
+                    "acceptemployee_wh": {
+                        "title": "acceptemployee_wh",
+                        "description": "acceptemployee_wh",
+                        "format": "string"
+                    },
+                    "warehouse_id": {
+                        "title": "warehouse_id",
+                        "description": "warehouse_id",
+                        "format": "int64"
+                    },
+                    "value_fields_wh": {
+                        "title": "value_fields_wh",
+                        "description": "value_fields_wh",
+                        "format": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "id_wh": 1,
+                    "parent_id_wh": null,
+                    "active_wh": true,
+                    "datetime_wh": "2018-11-12 14:09:15.442736",
+                    "type_wh": 2,
+                    "direct_wh": false,
+                    "edit_id_wh": null,
+                    "pin_wh": "100000000001",
+                    "taxper_wh": "100000001",
+                    "passport_wh": "AA1000001",
+                    "familyperson_wh": "F1",
+                    "nameperson_wh": "N1",
+                    "midlenameperson_wh": null,
+                    "tin_wh": "100000002",
+                    "name_wh": "ORG2",
+                    "oked_wh": "10002",
+                    "regionent_wh": "170311    ",
+                    "department_wh": "ORG2",
+                    "position_wh": "POS1_1",
+                    "prof_wh": "1     ",
+                    "id_position": 1,
+                    "salary_wh": "1010000.00",
+                    "flagbonus_wh": null,
+                    "termsalaru_wh": 1,
+                    "typeemp_wh": 1,
+                    "codenskz_wh": null,
+                    "order_wh": null,
+                    "dateorder_wh": "2001-07-12",
+                    "article_wh": null,
+                    "specspo_wh": null,
+                    "codespo_ls": null,
+                    "specvo_ls": null,
+                    "codevo_ls": null,
+                    "acceptemployer_wh": null,
+                    "acceptemployee_wh": null,
+                    "warehouse_id": 1,
+                    "value_fields_wh": null,
+                    "owner_wh": null,
+                    "owner_pin_wh": null,
+                    "owner_region_wh": null,
+                    "owner_tin_wh": null
+                }
+            },
+            "Nskz": {
+                "title": "НСКЗ",
+                "description": "НСКЗ",
+                "properties": {
+                    "_id_": {
+                        "title": "Ключ",
+                        "description": "Порядковый номер записи в таблице",
+                        "format": "int32"
+                    },
+                    "code": {
+                        "title": "Код",
+                        "description": "Код",
+                        "format": "int32"
+                    },
+                    "name": {
+                        "title": "Наименование",
+                        "description": "Наименование",
+                        "format": "string"
+                    },
+                    "_parent_id_": {
+                        "title": "Ключ родителя",
+                        "description": "Номер родительской записи в таблице",
+                        "format": "int32"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "_id_": "396",
+                    "code": "81",
+                    "name": "ОПЕРАТОРЫ ПРОМЫШЛЕННЫХ УСТАНОВОК",
+                    "_parent_id_": "395"
+                }
+            },
+            "Positions": {
+                "title": "Структура позиций",
+                "description": "Структура позиций",
+                "required": [
+                    "id_position"
+                ],
+                "properties": {
+                    "id_position": {
+                        "title": "Уникальный идентификатор должности",
+                        "description": "Уникальный идентификатор должности",
+                        "format": "int64"
+                    },
+                    "id_structure": {
+                        "title": "Уникальный идентификатор структуры",
+                        "description": "Уникальный идентификатор структуры",
+                        "format": "int64"
+                    },
+                    "name_position": {
+                        "title": "Наименование должности",
+                        "description": "Наименование должности",
+                        "format": "string"
+                    },
+                    "code_prof_position": {
+                        "title": "Код профессии (КОДП)",
+                        "description": "Код профессии (КОДП)",
+                        "format": "string"
+                    },
+                    "salary_position": {
+                        "title": "Оклад должностной",
+                        "description": "Оклад должностной",
+                        "format": "string"
+                    },
+                    "requirements_position": {
+                        "title": "Требования к должности",
+                        "description": "Требования к должности",
+                        "format": "string"
+                    },
+                    "duties_position": {
+                        "title": "Обязанности должности",
+                        "description": "Обязанности должности",
+                        "format": "string"
+                    },
+                    "conditions_position": {
+                        "title": "Условия должности",
+                        "description": "Условия должности",
+                        "format": "string"
+                    },
+                    "id_vacancy_position": {
+                        "title": "Идентификатор вакансии в хранилище",
+                        "description": "Идентификатор вакансии в хранилище",
+                        "format": "int64"
+                    },
+                    "form_position": {
+                        "title": "Вид занятости РМ",
+                        "description": "Вид занятости РМ",
+                        "format": "int2"
+                    },
+                    "status_open_position": {
+                        "title": "Позиция не занята",
+                        "description": "Позиция не занята",
+                        "format": "boolean"
+                    },
+                    "date_end_position": {
+                        "title": "Дата конца",
+                        "description": "Позиция не занята",
+                        "format": "date"
+                    },
+                    "flag_bonus_position": {
+                        "title": "Признак надбавка",
+                        "description": "Признак надбавка",
+                        "format": "boolean"
+                    },
+                    "type_emp_position": {
+                        "title": "Тип занятости",
+                        "description": "Тип занятости(описание в константах)",
+                        "format": "integer"
+                    },
+                    "code_prof_type_position": {
+                        "title": "Дополнительный идентификатор по кодп",
+                        "description": "Дополнительный идентификатор по кодп(type в таблице кодп)",
+                        "format": "string"
+                    },
+                    "rate_position": {
+                        "title": "Ставка должности",
+                        "description": "Ставка должности",
+                        "format": "numeric"
+                    },
+                    "date_start_position": {
+                        "title": "Дата начала",
+                        "description": "Позиция не занята",
+                        "format": "date"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "status_open_position": true,
+                    "id_structure_position": 5,
+                    "name_position": "POS4_3",
+                    "date_end_position": null,
+                    "date_start_position": "2018-08-08 00:00:00.000000",
+                    "requirements_position": null,
+                    "form_position": null,
+                    "code_prof_position": "12    ",
+                    "salary_position": "1030000.00",
+                    "id_position": 6337,
+                    "id_vacancy_position": 3961
+                }
+            },
+            "Structures": {
+                "title": "Структура организации",
+                "description": "Структура организации",
+                "required": [
+                    "id_structure",
+                    "name_structure"
+                ],
+                "properties": {
+                    "id_structure": {
+                        "title": "Уникальный идентификатор структуры",
+                        "description": "Уникальный идентификатор структуры",
+                        "format": "int64"
+                    },
+                    "parent_id_structure": {
+                        "title": "Родительская запись стр.орг.",
+                        "description": "Родительская запись стр.орг.",
+                        "format": "int64"
+                    },
+                    "name_structure": {
+                        "title": "Наименование структуры",
+                        "description": "Наименование структуры",
+                        "format": "string"
+                    },
+                    "tin_company_structure": {
+                        "title": "ИНН ЮЛ в структуре организации",
+                        "description": "ИНН ЮЛ в структуре организации",
+                        "format": "string"
+                    },
+                    "oked_structure": {
+                        "title": "Код ОКЭД",
+                        "description": "Код ОКЭД",
+                        "format": "string"
+                    },
+                    "region_structure": {
+                        "title": "СОАТО структуры",
+                        "description": "СОАТО структуры",
+                        "format": "string"
+                    },
+                    "region4_structure": {
+                        "title": "СОАТО структуры 4 знака",
+                        "description": "СОАТО структуры 4 знака",
+                        "format": "int64"
+                    },
+                    "root_id_structure": {
+                        "title": "Ссылка на корневую запись структуры",
+                        "description": "Ссылка на корневую запись структуры",
+                        "format": "int64"
+                    },
+                    "data_structure": {
+                        "title": "",
+                        "description": "",
+                        "format": "array"
+                    },
+                    "date_end_structure": {
+                        "title": "Дата конца",
+                        "description": "",
+                        "format": "date"
+                    },
+                    "date_start_structure": {
+                        "title": "Дата начала",
+                        "description": "",
+                        "format": "date"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "id_structure": 2044,
+                    "parent_id_structure": 5,
+                    "name_structure": "Отдел чего то там2",
+                    "tin_company_structure": "123123123",
+                    "oked_structure": null,
+                    "region_structure": null,
+                    "region4_structure": null,
+                    "root_id_structure": "6",
+                    "data_structure": null,
+                    "date_end_structure": null,
+                    "date_start_structure": "2017-12-12"
+                }
+            },
+            "Users": {
+                "title": "Пользователи",
+                "description": "Пользователи",
+                "required": [
+                    "id_structure",
+                    "name_structure"
+                ],
+                "properties": {
+                    "id_user": {
+                        "title": "Уникальный идентификатор пользователя",
+                        "description": "Уникальный идентификатор пользователя",
+                        "format": "int64"
+                    },
+                    "active_user": {
+                        "title": "Активность пользователя",
+                        "description": "Активность пользователя",
+                        "format": "boolean"
+                    },
+                    "tax_person_user": {
+                        "title": "ИНН польхователя",
+                        "description": "ИНН польхователя",
+                        "format": "string"
+                    },
+                    "pin_user": {
+                        "title": "ПИНФЛ пользователя",
+                        "description": "ПИНФЛ пользователя",
+                        "format": "string"
+                    },
+                    "tin_company_user": {
+                        "title": "ИНН компании к которой привязан пользователь",
+                        "description": "ИНН компании к которой привязан пользователь",
+                        "format": "string"
+                    },
+                    "soato_company_user": {
+                        "title": "СОАТО",
+                        "description": "СОАТО",
+                        "format": "string"
+                    },
+                    "is_admin_user": {
+                        "title": "Является ли человек админимтратором",
+                        "description": "Является ли человек админимтратором",
+                        "format": "boolean"
+                    },
+                    "mobile_user": {
+                        "title": "Номер мобильного телефона",
+                        "description": "Номер мобильного телефона",
+                        "format": "string"
+                    },
+                    "home_tel_user": {
+                        "title": "Номер городского телефона",
+                        "description": "Номер городского телефона",
+                        "format": "string"
+                    },
+                    "user_oked_user": {
+                        "title": "Общий классификатор экономической деятельности",
+                        "description": "Общий классификатор экономической деятельности",
+                        "format": "string"
+                    },
+                    "token_user": {
+                        "title": "Токен пользователя",
+                        "description": "Токен пользователя",
+                        "format": "string"
+                    },
+                    "soato_minlab_user": {
+                        "title": "СОАТО сотрудника минЗТО",
+                        "description": "СОАТО сотрудника минЗТО",
+                        "format": "string"
+                    },
+                    "family_person_user": {
+                        "title": "Фамилия пользователя",
+                        "description": "Фамилия пользователя",
+                        "format": "string"
+                    },
+                    "name_person_user": {
+                        "title": "Имя пользователя",
+                        "description": "Имя пользователя",
+                        "format": "string"
+                    },
+                    "middlename_person_user": {
+                        "title": "Отчество пользователя",
+                        "description": "Отчество пользователя",
+                        "format": "string"
+                    },
+                    "data_user": {
+                        "title": "Массив данных",
+                        "description": "Массив данных",
+                        "format": "array"
+                    },
+                    "type_user": {
+                        "title": "Тип пользователя",
+                        "description": "Тип пользователя",
+                        "format": "int64"
+                    },
+                    "visible_data_user": {
+                        "title": "Разрешил ли пользователь показывать свои данные",
+                        "description": "Разрешил ли пользователь показывать свои данные",
+                        "format": "int2"
+                    },
+                    "ml_right_user": {
+                        "title": "Права пользователя",
+                        "description": "Права пользователя",
+                        "format": "int64"
+                    },
+                    "su_right_user": {
+                        "title": "Права суперпользователя",
+                        "description": "Права суперпользователя",
+                        "format": "int64"
+                    },
+                    "email_user": {
+                        "title": "Email пользователя",
+                        "description": "Email пользователя",
+                        "format": "string"
+                    },
+                    "residential_address_user": {
+                        "title": "Адрес проживания",
+                        "description": "Адрес проживания",
+                        "format": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "id_user": 603,
+                    "active_user": null,
+                    "type_user": 2,
+                    "tax_person_user": "400000001",
+                    "pin_user": "10100000000002",
+                    "tin_company_user": "100000005",
+                    "is_admin_user": null,
+                    "mobile_user": "998971111111",
+                    "home_tel_user": "998712222222",
+                    "token_user": null,
+                    "company_right_user": null,
+                    "ws_right_user": null,
+                    "visible_data_user": null,
+                    "ml_right_user": null,
+                    "su_right_user": null,
+                    "soato_minlab_user": null,
+                    "email_user": null,
+                    "soato_company_user": null,
+                    "user_oked_user": null,
+                    "family_person_user": "Shukurov",
+                    "name_person_user": "Aziz",
+                    "middlename_person_user": "Azizovich",
+                    "data_user": {
+                        "address": "Hamid Olimjon 45",
+                        "sex": 1,
+                        "birth_date": "1995-04-20"
+                    },
+                    "residential_address_user": "Ташкент, Мирзо-Улугбекский район, улица Паркентская, дом 23а, квартира 153"
+                }
+            },
+            "ApproveCode": {
+                "title": "НСКЗ",
+                "description": "НСКЗ",
+                "properties": {
+                    "id": {
+                        "title": "Ключ",
+                        "description": "Порядковый номер записи в таблице",
+                        "format": "int32"
+                    },
+                    "phone_number": {
+                        "title": "Номер мобильного телефона",
+                        "description": "Номер мобильного телефона",
+                        "format": "int64"
+                    },
+                    "id_lc": {
+                        "title": "id Контракта",
+                        "description": "id Контракта",
+                        "format": "int64"
+                    },
+                    "user_id": {
+                        "title": "id Юзера запросившего подтверждение контракта",
+                        "description": "id Юзера запросившего подтверждение контракта",
+                        "format": "int64"
+                    },
+                    "user_id_approved": {
+                        "title": "id Юзера подтвердившего контракт",
+                        "description": "id Юзера подтвердившего контракт",
+                        "format": "int64"
+                    },
+                    "updated_at": {
+                        "title": "Дата обновления записи",
+                        "description": "Дата обновления записи",
+                        "format": "date"
+                    },
+                    "created_at": {
+                        "title": "Дата создания записи",
+                        "description": "Дата создания записи",
+                        "format": "date"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "id": 1,
+                    "phone_number": 998977806493,
+                    "id_lc": 1534573,
+                    "user_id": 634,
+                    "user_id_approved": 634,
+                    "created_at": 1547199446,
+                    "updated_at": 1547199762
+                }
+            }
+        },
+        "requestBodies": {
+            "Contract": {
+                "description": "Contract object that needs to be added to the store",
+                "required": true,
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Lc"
+                        }
+                    }
+                }
+            },
+            "Department": {
+                "description": "Department object that needs to be added to the store",
+                "required": true,
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Structures"
+                        }
+                    }
+                }
+            },
+            "Post": {
+                "description": "Post object that needs to be added to the store",
+                "required": true,
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Positions"
+                        }
+                    }
+                }
+            },
+            "LcStore": {
+                "description": "Contract object that needs to be added to the store",
+                "required": true,
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "items": {
+                                "title": "Трудовые договоры",
+                                "description": "Трудовые договоры",
+                                "required": [
+                                    "pin_lc",
+                                    "tin_lc",
+                                    "name_company_lc",
+                                    "tax_person_lc",
+                                    "type_emp_lc",
+                                    "passport_lc",
+                                    "date_start_lc",
+                                    "name_person_lc",
+                                    "family_person_lc",
+                                    "main_work_lc",
+                                    "date_start_lc"
+                                ],
+                                "example": {
+                                    "pin_lc": "10100000000001",
+                                    "tin_lc": "100000005",
+                                    "name_company_lc": "ORG2",
+                                    "code_prof_lc": "5",
+                                    "order_lc": "order #123",
+                                    "salary_lc": 1000000,
+                                    "tax_person_lc": "100000001",
+                                    "article_lc": "Статья увольнения",
+                                    "type_emp_lc": "1",
+                                    "code_nskz_lc": "1232",
+                                    "id_position_lc": "3",
+                                    "passport_lc": "AA1234567",
+                                    "date_order_lc": "2018-11-12",
+                                    "date_start_lc": "2018-11-28",
+                                    "name_person_lc": "Ivan",
+                                    "term_salary_lc": 1,
+                                    "family_person_lc": "Ivanov",
+                                    "value_fields_lc": {
+                                        "a": "b"
+                                    },
+                                    "middlename_person_lc": "Ivanovich",
+                                    "main_work_lc": true,
+                                    "date_of_contract_lc": "2018-11-21"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "LcUpdate": {
+                "description": "Contract object that needs to be added to the store",
+                "required": true,
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "items": {
+                                "title": "Трудовые договоры",
+                                "description": "Трудовые договоры",
+                                "required": [
+                                    "pin_lc",
+                                    "tin_lc",
+                                    "name_company_lc",
+                                    "code_prof_lc",
+                                    "tax_person_lc",
+                                    "type_emp_lc",
+                                    "passport_lc",
+                                    "name_person_lc",
+                                    "family_person_lc",
+                                    "main_work_lc",
+                                    "date_start_lc"
+                                ],
+                                "example": {
+                                    "name_company_lc": "ORG2",
+                                    "code_prof_lc": "5",
+                                    "order_lc": "order #123",
+                                    "salary_lc": 1000000,
+                                    "article_lc": "Статья увольнения",
+                                    "type_emp_lc": "1",
+                                    "code_nskz_lc": "1232",
+                                    "passport_lc": "AA1234567",
+                                    "date_start_lc": "2018-11-28",
+                                    "term_salary_lc": 1,
+                                    "family_person_lc": "Ivanov",
+                                    "value_fields_lc": "{}",
+                                    "middlename_person_lc": "Ivanovich",
+                                    "main_work_lc": true,
+                                    "date_of_contract_lc": "2018-11-21"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "StructuresStore": {
+                "description": "Department object that needs to be added to the store",
+                "required": true,
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "items": {
+                                "title": "Структура организации",
+                                "description": "Структура организации",
+                                "required": [
+                                    "parent_id_structure",
+                                    "name_structure",
+                                    "date_start_structure"
+                                ],
+                                "example": {
+                                    "parent_id_structure": 5,
+                                    "name_structure": "Отдел #2",
+                                    "date_end_structure": "2018-12-12",
+                                    "date_start_structure": "2017-12-12"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "StructuresUpdate": {
+                "description": "Department object that needs to be updated in the store",
+                "required": true,
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "items": {
+                                "title": "Структура организации",
+                                "description": "Структура организации",
+                                "required": [
+                                    "parent_id_structure",
+                                    "name_structure",
+                                    "date_start_structure"
+                                ],
+                                "example": {
+                                    "parent_id_structure": 5,
+                                    "name_structure": "Отдел #2",
+                                    "date_end_structure": "2018-12-12",
+                                    "date_start_structure": "2017-12-12"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "StructuresDestroy": {
+                "description": "Department object that needs to be destroyed in the store",
+                "required": true,
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "items": {
+                                "title": "Структура организации",
+                                "description": "Структура организации",
+                                "required": [],
+                                "example": []
+                            }
+                        }
+                    }
+                }
+            },
+            "PositionsStore": {
+                "description": "Department object that needs to be added to the store",
+                "required": true,
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "items": {
+                                "title": "Структура организации",
+                                "description": "Структура организации",
+                                "required": [
+                                    "id_structure_position",
+                                    "name_position",
+                                    "date_start_position",
+                                    "code_prof_position",
+                                    "salary_position"
+                                ],
+                                "example": {
+                                    "id_structure_position": 5,
+                                    "name_position": "POS4_3",
+                                    "date_end_position": "2018-12-08 00:00:00",
+                                    "date_start_position": "2018-08-08 00:00:00.000000",
+                                    "status_open_position": true,
+                                    "requirements_position": "",
+                                    "form_position": 1,
+                                    "code_prof_position": "12",
+                                    "salary_position": "1030000.00"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "PositionsUpdate": {
+                "description": "Department object that needs to be added to the store",
+                "required": true,
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "items": {
+                                "title": "Структура организации",
+                                "description": "Структура организации",
+                                "required": [],
+                                "example": {
+                                    "id_structure_position": 5,
+                                    "name_position": "POS4_3",
+                                    "date_end_position": "2018-12-08 00:00:00",
+                                    "date_start_position": "2018-08-08 00:00:00",
+                                    "status_open_position": true,
+                                    "requirements_position": "",
+                                    "form_position": 1,
+                                    "code_prof_position": "12"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "PositionsDestroy": {
+                "description": "Department object that needs to be added to the store",
+                "required": true,
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "items": {
+                                "title": "Структура организации",
+                                "description": "Структура организации",
+                                "required": [],
+                                "example": []
+                            }
+                        }
+                    }
+                }
+            },
+            "ApproveCodeRequest": {
+                "description": "ApproveCode object that needs to be added to the store",
+                "required": true,
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "items": {
+                                "title": "Запрос подтверждение контракта",
+                                "description": "Запрос подтверждение контракта",
+                                "required": [
+                                    "id_lc",
+                                    "phone_number"
+                                ],
+                                "example": {
+                                    "id_lc": 1534573,
+                                    "code": 995240
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "ApproveCodeApprove": {
+                "description": "ApproveCode object that needs to be added to the store",
+                "required": true,
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "items": {
+                                "title": "Подтверждение контракта",
+                                "description": "Подтверждение контракта",
+                                "required": [
+                                    "id_lc",
+                                    "code"
+                                ],
+                                "example": {
+                                    "id_lc": 1534573,
+                                    "phone_number": 998977806493
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "etk_auth": {
+                "type": "oauth2",
+                "flows": {
+                    "password": {
+                        "tokenUrl": "/oauth/token",
+                        "refreshUrl": "/oauth/token",
+                        "scopes": []
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "helpers",
+            "description": "helpers desc"
+        },
+        {
+            "name": "Contract",
+            "description": "Access to Labor Contracts"
+        },
+        {
+            "name": "Department",
+            "description": "Access to company structures"
+        },
+        {
+            "name": "Users",
+            "description": "Access to users"
+        },
+        {
+            "name": "Post",
+            "description": "Access to company Post"
+        },
+        {
+            "name": "Log",
+            "description": "Access to Log"
+        },
+        {
+            "name": "helpers",
+            "description": "helpers desc"
+        },
+        {
+            "name": "Contract",
+            "description": "Access to Labor Contracts"
+        },
+        {
+            "name": "Department",
+            "description": "Access to company structures"
+        },
+        {
+            "name": "Users",
+            "description": "Access to users"
+        },
+        {
+            "name": "Post",
+            "description": "Access to company Post"
+        },
+        {
+            "name": "Log",
+            "description": "Access to Log"
+        }
+    ]
+}
